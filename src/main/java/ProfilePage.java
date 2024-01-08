@@ -60,7 +60,7 @@ public class ProfilePage {
         newPostLink.click();
     }
 
-    public String getUserProfileName(String username) {
+    public String getUserProfileName() {
         return userProfileName.getText();
     }
 }
