@@ -2,6 +2,8 @@
 
 <suite name="Test suite" verbose="1">
     <test name="Test">
-        <classes/>
+        <classes>
+            <class name="RegisterProfileTest" />
+        </classes>
     </test>
 </suite>

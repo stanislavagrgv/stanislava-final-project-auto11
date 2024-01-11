@@ -44,18 +44,18 @@ public class RegisterProfilePage {
     public void fillInEmail(String email) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(emailInput));
-        usernameInput.sendKeys(email);
+        emailInput.sendKeys(email);
     }
     public void fillInPassword(String password) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(passwordInput));
-        usernameInput.sendKeys(password);
+        passwordInput.sendKeys(password);
     }
 
     public void fillInConfirmPassword(String confirmPassword) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(passwordInput));
-        usernameInput.sendKeys(confirmPassword);
+        confirmPasswordInput.sendKeys(confirmPassword);
     }
 
     public void clickSignInButton() {
