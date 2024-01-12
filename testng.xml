@@ -4,6 +4,8 @@
     <test name="Test">
         <classes>
             <class name="RegisterProfileTest" />
+            <class name="CreatePostTest" />
+            <class name="EditProfileTest" />
         </classes>
     </test>
 </suite>
