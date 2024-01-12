@@ -15,7 +15,7 @@ public class EditProfileTest extends TestBase{
         File profilePicture = new File("src\\main\\resources\\upload\\profile_image_upload.jpg");
         return new Object[][]{
                 {
-                    "stanig3",
+                    "staniab",
                     "111111",
                     profilePicture
                 },
@@ -27,10 +27,10 @@ public class EditProfileTest extends TestBase{
 
         return new Object[][]{
                 {
-                        "stanitest",
-                        "aaaaaa",
-                        "initial@example.com",
-                        "new3@example.com"
+                        "staniab",
+                        "111111",
+                        "staniab@example.com",
+                        "nstani@example.com"
                 },
         };
     }
@@ -73,13 +73,8 @@ public class EditProfileTest extends TestBase{
 
         profilePage.clickEditProfileIcon();
 
-
-        //profilePage.logout();
-
         loginPage.performLoginSteps(newEmail, password);
         Assert.assertTrue("Email was not changed", homePage.isHomePageUrlLoaded());
-        System.out.println("5");
     }
-
 
 }
