@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -55,6 +56,14 @@ public class LoginPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(registerLink));
         registerLink.click();
+    }
+
+    public void performLoginSteps(String username, String password){
+        navigateTo();
+        Assert.assertTrue("Login page is not loaded", isLoginPageUrlLoaded());
+        fillInUsername(username);
+        fillInPassword(password);
+        clickSignInButton();
     }
 
 }

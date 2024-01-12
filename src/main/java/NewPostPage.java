@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 
 public class NewPostPage {
@@ -13,7 +14,7 @@ public class NewPostPage {
     private final WebDriver driver;
 
     @FindBy(xpath = "//input[@class=\"ng-untouched ng-pristine ng-invalid\"]")
-    WebElement uploadPicture;
+    WebElement uploadPictureInput;
 
     @FindBy(name = "caption")
     WebElement postCaptionInput;
@@ -27,6 +28,9 @@ public class NewPostPage {
     @FindBy (id="create-post")
     WebElement createPostButton;
 
+    @FindBy (id="upload-img")
+    WebElement profilePicture;
+
 
     public NewPostPage(WebDriver driver) {
         this.driver = driver;
@@ -38,8 +42,8 @@ public class NewPostPage {
         return wait.until(ExpectedConditions.urlToBe(NewPostPage.NEW_POST_URL));
     }
 
-    public void uploadPicture(String pictureFullPath){
-        uploadPicture.sendKeys(pictureFullPath);
+    public void uploadFile(File file) {
+        uploadPictureInput.sendKeys(file.getAbsolutePath());
     }
 
     public void fillInCaption(String postCaption) {
@@ -52,8 +56,20 @@ public class NewPostPage {
         }
     }
 
+    public void setPublicPost(){
+        if (!((privateLabel.getAttribute("class")).equals("post-status-label public-status-label"))) {
+            accessStatus.click();
+        }
+    }
+
     public void clickCreatePostButton(){
-        createPostButton.click();
+        WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.visibilityOf(createPostButton));
+        createPostButton.submit();
+    }
+
+    public void uploadProfilePicture(File file){
+    profilePicture.sendKeys(file.getAbsolutePath());
     }
 
 }
