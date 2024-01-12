@@ -12,8 +12,8 @@ public class CreatePostTest extends TestBase{
 
         File postPicture = new File("src\\main\\resources\\upload\\image_upload1.jpg");
         return new Object[][]{
-                {"stanii",
-                 "aaaaaa",
+                {"staniab",
+                 "111111",
                  postPicture,
                  "My new post"},
         };
@@ -42,7 +42,7 @@ public class CreatePostTest extends TestBase{
 
         newPostPage.uploadFile(file);
         newPostPage.fillInCaption(postCaption);
-        //newPostPage.setPublicPost();
+        newPostPage.setPublicPost();
         newPostPage.clickCreatePostButton();
 
         Assert.assertTrue("You are not returned to Profile page", profilePage.isProfilePageUrlLoaded());

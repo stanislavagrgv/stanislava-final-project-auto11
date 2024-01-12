@@ -7,7 +7,7 @@ public class RegisterProfileTest extends TestBase{
     @DataProvider(name="registerProfileData")
     public Object [][] postData() {
         return new Object[][]{
-                {"stanii", "stanii@example.com", "aaaaaa", "aaaaaa"},
+                {"stanivg", "stanivg@example.com", "aaaaaa", "aaaaaa"},
         };
     }
 
