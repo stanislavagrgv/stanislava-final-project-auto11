@@ -1,5 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -64,6 +65,14 @@ public class TestBase {
             }
         }
 
+    }
+
+    public String generateRandomUsername(int minLengthInclusive, int maxLengthInclusive) {
+        return generateRandomAlphanumericString(minLengthInclusive, maxLengthInclusive);
+    }
+
+    public String generateRandomAlphanumericString(int minLengthInclusive, int maxLengthInclusive) {
+        return RandomStringUtils.randomAlphanumeric(minLengthInclusive, maxLengthInclusive).toLowerCase();
     }
 
 }

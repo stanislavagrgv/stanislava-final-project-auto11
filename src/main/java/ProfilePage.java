@@ -41,6 +41,12 @@ public class ProfilePage {
     @FindBy(className = "post-filter-buttons")
     WebElement postsFilterButtons;
 
+    @FindBy(xpath = "//label[contains(text(), \"Public\")]/input")
+    WebElement publicPostsFilter;
+
+    @FindBy(xpath = "//label[contains(text(), \"Private\")]/input")
+    WebElement privatePostsFilter;
+
     @FindAll({
             @FindBy(tagName = "app-post")
     })
@@ -102,14 +108,12 @@ public class ProfilePage {
     }
 
     public void clickPublicPostsFilter() {
-       WebElement publicPostsFilter = postsFilterButtons.findElement(By.xpath("//label[contains(text(), \"Public\")]/input"));
        Actions actions = new Actions(driver);
        actions.moveToElement(publicPostsFilter).click().build().perform();
     }
 
     public void clickPrivatePostsFilter() {
         Actions actions = new Actions(driver);
-        WebElement privatePostsFilter = postsFilterButtons.findElement(By.xpath("//label[contains(text(), \"Private\")]/input"));
         actions.moveToElement(privatePostsFilter).click().build().perform();
     }
 

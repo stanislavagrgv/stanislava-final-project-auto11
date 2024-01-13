@@ -6,8 +6,11 @@ public class RegisterProfileTest extends TestBase{
 
     @DataProvider(name="registerProfileData")
     public Object [][] postData() {
+        String username = super.generateRandomUsername(4, 10);
+        String email = username + "@example.com";
+        String password = super.generateRandomAlphanumericString(6, 8);
         return new Object[][]{
-                {"stanivg", "stanivg@example.com", "aaaaaa", "aaaaaa"},
+                {username, email, password, password},
         };
     }
 
